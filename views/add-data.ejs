@@ -23,13 +23,13 @@
                         <strong>Data Siswa</strong>
                     </div>
                     <div class="card-body">
-                        <div class="form-group row mb-3">
+                        <div class="row mb-3">
                             <label for="nama" class="col-sm-3 col-form-label">Nama Lengkap :</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama Lengkap" required>
                             </div>
                         </div>
-                        <div class="form-group row mb-3">
+                        <div class="row mb-3">
                             <label for="jk" class="col-sm-3 col-form-label">Jenis Kelamin :</label>
                             <div class="col-sm-9">
                                 <select class="form-select" id="jk" name="jk" required>
@@ -39,12 +39,10 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group row mb-3">
+                        <div class="row mb-3">
                             <label for="nisn" class="col-sm-3 col-form-label">NISN :</label>
                             <div class="col-sm-9">
-                                <div class="form-group is-invalid">
-                                    <input type="number" class="form-control" id="nisn" name="nisn" placeholder="Masukkan NISN" required>
-                                </div>
+                                <input type="number" class="form-control <%= errors && errors.find(e => e.param === 'nisn') ? 'is-invalid' : '' %>" id="nisn" name="nisn" placeholder="Masukkan NISN" required>
                                 <% if (errors && errors.find(e => e.param === 'nisn')) { %> 
                                     <div class="invalid-feedback"> 
                                         <%= errors.find(e => e.param === 'nisn').msg %> 
@@ -52,12 +50,10 @@
                                 <% } %>
                             </div>
                         </div>
-                        <div class="form-group row mb-3">
+                        <div class="row mb-3">
                             <label for="nik" class="col-sm-3 col-form-label">NIK :</label>
                             <div class="col-sm-9">
-                                <div class="form-group is-invalid">
-                                    <input type="number" class="form-control" id="nik" name="nik" placeholder="Masukkan NIK" required>
-                                </div>
+                                <input type="number" class="form-control <%= errors && errors.find(e => e.param === 'nik') ? 'is-invalid' : '' %>" id="nik" name="nik" placeholder="Masukkan NIK" required>
                                 <% if (errors && errors.find(e => e.param === 'nik')) { %> 
                                     <div class="invalid-feedback"> 
                                         <%= errors.find(e => e.param === 'nik').msg %> 
@@ -65,16 +61,16 @@
                                 <% } %>
                             </div>
                         </div>
-                        <div class="form-group row mb-3">
+                        <div class="row mb-3">
                             <label for="nokk" class="col-sm-3 col-form-label">No.KK :</label>
                             <div class="col-sm-9">
                                 <input type="number" class="form-control" id="nokk" name="nokk" placeholder="Masukkan No.KK" required>
                             </div>
                         </div>
-                        <div class="form-group row mb-3">
+                        <div class="row mb-3">
                             <label for="tingkat" class="col-sm-3 col-form-label">Tingkat Kelas Saat Ini :</label>
                             <div class="col-sm-9">
-                                <select class="form-select" id="tingkat" name="tingkat" required>
+ <select class="form-select" id="tingkat" name="tingkat" required>
                                     <option selected disabled>Pilih Tingkat Kelas</option>
                                     <option value="X">X</option>
                                     <option value="XI">XI</option>
@@ -82,7 +78,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group row mb-3">
+                        <div class="row mb-3">
                             <label for="rombel" class="col-sm-3 col-form-label">Rombel :</label>
                             <div class="col-sm-9">
                                 <select class="form-select" id="rombel" name="rombel" required>
@@ -94,7 +90,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group row mb-3">
+                        <div class="row mb-3">
                             <label for="terdaftar" class="col-sm-3 col-form-label">Terdaftar Sebagai :</label>
                             <div class="col-sm-9">
                                 <select class="form-select" id="terdaftar" name="terdaftar" required>
@@ -104,13 +100,13 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group row mb-3">
+                        <div class="row mb-3">
                             <label for="ttl" class="col-sm-3 col-form-label">Tempat Tanggal Lahir :</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="ttl" name="ttl" placeholder="Masukkan Tempat Tanggal Lahir" required>
                             </div>
                         </div>
-                        <div class="form-group row mb-3">
+                        <div class="row mb-3">
                             <label for="tgl_masuk" class="col-sm-3 col-form-label">Tanggal Masuk :</label>
                             <div class="col-sm-9">
                                 <input type="date" class="form-control" id="tgl_masuk" name="tgl_masuk" max="<%= new Date().toISOString().split('T')[0] %>" required>
@@ -120,16 +116,33 @@
                     <div class="card-footer">
                         <div class="row">
                             <div class="col-md-6">
-                                <button type="submit" class="btn btn-sm btn-primary"><i class="bi bi-person-plus-fill"></i>Tambah</button>
+                                <button type="submit" class="btn btn-sm btn-primary"><i class="bi bi-person-plus-fill"></i> Tambah</button>
                             </div>
                             <div class="col-md-6 text-end">
                                 <a href="/data-siswa" class="btn btn-sm btn-success">&laquo; Kembali</a>
                             </div>
                         </div>
                     </div>
-                
                 </div>
             </form>
         </div>
     </main>
 </div>
+
+<style>
+    /* Gaya untuk form */
+    .form-control:focus {
+        border-color: #007bff; /* Warna border saat fokus */
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Efek bayangan saat fokus */
+    }
+    .alert {
+        margin-top: 20px; /* Jarak atas untuk alert */
+    }
+    .btn {
+        transition: background-color 0.3s, transform 0.3s;
+    }
+    .btn:hover {
+        background-color: #0056b3; /* Ganti warna saat hover */
+        transform: scale(1.05); /* Efek zoom saat hover */
+    }
+</style>

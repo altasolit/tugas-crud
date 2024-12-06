@@ -70,14 +70,14 @@ mongoose.connect('mongodb://127.0.0.1:27017/dapodik');
 
 //! Menambah 1 data user
 // const user1 = new User({
-//     nama: 'Bagus Maulana',
-//     username: 'admin',
+//     nama: 'yovel',
+//     username: 'adminn',
 //     password: 'admin123',
 // });
 
 //! Menambah 1 data siswa
 // const siswa1 = new Siswa({
-//     nama: 'Bagus Maulana',
+//     nama: 'yovel',
 //     jk: 'Laki-Laki',
 //     nisn: '12334',
 //     nik: '23434',
@@ -85,7 +85,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/dapodik');
 //     tingkat: 'XI',
 //     rombel: 'RPL 1',
 //     terdaftar: "Siswa Baru",
-//     ttl: 'Cirebon, 04 Agustus 2008',
+//     ttl: 'Cirebon, 17 november 2008',
 //     tgl_masuk: '2024-11-24',
 // });
 

@@ -42,10 +42,7 @@ const SiswaSchema = new mongoose.Schema({
         type: String,
         required: true,
     }
-    // timestamp: {
-    //     type: Date,
-    //     default: Date.now,
-    // }
+
 }, { collection: 'siswa' });
 
 const Siswa = mongoose.model('Siswa', SiswaSchema);
